@@ -24,3 +24,17 @@
         @tailwind base;
         @tailwind components;
         @tailwind utilities;
+
+
+### Dependencies and plugins
+    for state management
+    npm install @reduxjs/toolkit
+    npm install react-redux
+    npm install react-router-dom
+    npm install react-icons
+    npm install react-chartjs-2
+    npm install chart.js
+    npm install daisyui for ui
+    npm install axios for network request
+    npm install react-hot-toast for messaging
+    npm install @tailwindcss/line-clamp
