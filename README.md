@@ -24,8 +24,12 @@
         @tailwind base;
         @tailwind components;
         @tailwind utilities;
+    5.Install dependencies 
+        npm i -D postcss autoprefixer
+    6. Make changes in content of tailwing.config.js
+          content: ["./index.html,./src/**/*.{html,js,jsx,ts,tsx}"],
 
-
+    7. npx tailwindcss init -p      it will give post css config (when project is created through vite)
 ### Dependencies and plugins
     for state management
     npm install @reduxjs/toolkit
