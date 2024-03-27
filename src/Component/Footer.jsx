@@ -12,7 +12,8 @@ function Footer(){
                     Copyright {year} | All rights reserved
                 </section>
                 <section className='flex items-center justify-center gap-5 text-2xl text-white'>
-                    <a className='hover:text-yellow-500 transition-all ease-in-out duration-300'>
+                    <a className='hover:text-yellow-500 transition-all ease-in-out duration-300' href='https://www.facebook.com/'>
+                        
                         <BsFacebook />
                     </a>
                     <a className='hover:text-yellow-500 transition-all ease-in-out duration-300'>

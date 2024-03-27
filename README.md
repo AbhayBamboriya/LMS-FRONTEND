@@ -48,4 +48,4 @@
     npm install react-hot-toast for messaging
     npm install @tailwindcss/line-clamp
 
-### daisyui is used slide bar
+### daisyui is used in slide bar
