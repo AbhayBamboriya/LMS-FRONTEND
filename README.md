@@ -30,6 +30,11 @@
           content: ["./index.html,./src/**/*.{html,js,jsx,ts,tsx}"],
 
     7. npx tailwindcss init -p      it will give post css config (when project is created through vite)
+
+    8.Add the following deatails in the plugins property of tailwing config so that daisiui css will be applied
+          plugins: [require('daisyui'),require('@tailwindcss/line-clamp')],
+
+     
 ### Dependencies and plugins
     for state management
     npm install @reduxjs/toolkit
@@ -42,3 +47,5 @@
     npm install axios for network request
     npm install react-hot-toast for messaging
     npm install @tailwindcss/line-clamp
+
+### daisyui is used slide bar
