@@ -73,7 +73,7 @@ function SignUp(){
         // [a-zA-Z0-9]{8,}         //should contain at least 8 from the mentioned characters
 
         // $/)
-        if(!signupData.password.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{8,}$/)){
+        if(signupData.password.match(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{8,}$/)){
             toast.error('Password should contain at least 8 character 1 digit 1 lower case 1 uppercase')
             return
         }
@@ -164,7 +164,7 @@ function SignUp(){
                     <button type="submit" className="bg-yellow-500 mt-2 hover:bg-yellow-600 transition-all ease-in-out duration-300 rounded-xl py-2 font-semibold text-lg cursor-pointer">
                         Create Account
                     </button>
-                    <p className="text-center">Already have an Account ? <Link to='./login' className="link text-accent cursor-pointer">Login</Link></p>
+                    <p className="text-center">Already have an Account ? <Link to='/login' className="link text-accent cursor-pointer">Login</Link></p>
                 </form>
 
             </div>

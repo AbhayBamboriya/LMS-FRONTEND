@@ -13,17 +13,52 @@ const initialState={
 // string is passed in createAsyncThunk to uniquely identify
 export const createAccount=createAsyncThunk('/auth/signup',async(data) =>{
     try{
-        const res=axiosInstance.post('user/register',data)
+        const res=axiosInstance.post("user/register",data)
         console.log('res'+res);
-        toast.promise(res,{
+        toast.promise(res
+            // ,console.log('ressss'+res).toString()
+            ,{
             loading:"Wait! Creating your account",
             
-            success:(d)=>{
-                return d?.d?.message
+            success:(data)=>{
+                return data?.data?.message
             },
             error:"Failed to create account"
-        })
-        console.log('check');
+            // error: (err) => {
+            //     console.error('Failed to create account:', err);
+            //     return "Failed to create account";
+            // }
+            // console.log();
+        });
+        // console.log('check');
+        return (await res).data
+    }
+    catch(e){
+        toast.error(e?.response?.data?.message)
+    }
+})
+
+
+export const login=createAsyncThunk('/auth/login',async(data) =>{
+    try{
+        const res=axiosInstance.post("/user/login",data)
+        console.log('res'+res);
+        toast.promise(res
+            // ,console.log('ressss'+res).toString()
+            ,{
+            loading:"Wait! Authentication in Progress ",
+            
+            success:(data)=>{
+                return data?.data?.message
+            },
+            error:"Failed to Login"
+            // error: (err) => {
+            //     console.error('Failed to create account:', err);
+            //     return "Failed to create account";
+            // }
+            // console.log();
+        });
+        // console.log('check');
         return (await res).data
     }
     catch(e){
