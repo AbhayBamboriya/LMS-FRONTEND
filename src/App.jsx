@@ -8,6 +8,7 @@ import SignUp from './Pages/Signup'
 import Login from './Pages/Login'
 import CourseList from './Pages/Courses/CourseList'
 import Contact from './Pages/Contact'
+import Denied from './Pages/Denied'
 // import morgan from 'morgan'
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
           <Route path='/signup' element={<SignUp/>}></Route>
           <Route path='/login' element={<Login/>}></Route>
           <Route path='/contact' element={<Contact/>}></Route>
+          <Route path='/denied' element={<Denied/>}></Route>
           <Route path='*' element={<NotFound/>}></Route>
        </Routes>
       
