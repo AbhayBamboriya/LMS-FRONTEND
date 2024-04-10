@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom"
 import { useDispatch } from "react-redux"
 import toast from "react-hot-toast"
 import { createAccount } from "../Redux/Slices/AuthSlice"
+import { isEmail } from "../Helpers/regexMatcher"
 function SignUp(){
     const dispatch =useDispatch();
     const navigate=useNavigate();
@@ -59,7 +60,7 @@ function SignUp(){
 
         // o get email validator regex google-email regex javascript 
         // checking for the valid email
-        if(!signupData.email.match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)){
+        if(!isEmail(signupData.email)){
             toast.error('Invalid Email Id')
             return
         }
