@@ -9,6 +9,7 @@ import Login from './Pages/Login'
 import CourseList from './Pages/Courses/CourseList'
 import Contact from './Pages/Contact'
 import Denied from './Pages/Denied'
+import CourserDescription from './Pages/Courses/CourseDescription'
 // import morgan from 'morgan'
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route path='/about' element={<AboutUs/>}></Route>
           <Route path='/courses' element={<CourseList/>}></Route>
           <Route path='/signup' element={<SignUp/>}></Route>
+          <Route path='/course/description' element={<CourserDescription/>}></Route>
           <Route path='/login' element={<Login/>}></Route>
           <Route path='/contact' element={<Contact/>}></Route>
           <Route path='/denied' element={<Denied/>}></Route>
