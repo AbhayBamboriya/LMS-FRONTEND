@@ -10,6 +10,8 @@ import CourseList from './Pages/Courses/CourseList'
 import Contact from './Pages/Contact'
 import Denied from './Pages/Denied'
 import CourserDescription from './Pages/Courses/CourseDescription'
+import RequireAuth from './Component/Auth/RequireAuth'
+import CreateCourse from './Pages/Courses/CreateCourse'
 // import morgan from 'morgan'
 
 function App() {
@@ -26,6 +28,11 @@ function App() {
           <Route path='/login' element={<Login/>}></Route>
           <Route path='/contact' element={<Contact/>}></Route>
           <Route path='/denied' element={<Denied/>}></Route>
+
+          <Route element={<RequireAuth allowedRoles={["ADMIN"]} />}>
+                <Route path='/course/create' element={<CreateCourse/>}></Route>
+          </Route>
+
           <Route path='*' element={<NotFound/>}></Route>
        </Routes>
       
