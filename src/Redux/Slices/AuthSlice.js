@@ -8,7 +8,9 @@ import  axiosInstance  from "../../Helpers/axiosInstance";
 const initialState={
     isLoggedIn:localStorage.getItem('isLoggedIn')   || false,
     role:localStorage.getItem('role') || "",
-    data:localStorage.getItem('data') || {},
+    // json .parse is used because when we do refresh then data will be in string format in redux dev tools
+    // data:JSON.parse(localStorage.getItem('data')) || {},
+    data:(localStorage.getItem('data')) || {},
 }  
 // thunk is used to provide the delay
 // string is passed in createAsyncThunk to uniquely identify
@@ -69,8 +71,8 @@ export const login=createAsyncThunk('/auth/login',async(data) =>{
 
 export const logout = createAsyncThunk("/auth/logout",async ()=>{
     try{
-        const res=axiosInstance.post("user/logout")
-        console.log('res'+res);
+        const res=axiosInstance.get("/user/logout")
+        console.log('res'+(await res).data);
         toast.promise(res,{
             loading:"Wait! Logout in Progress ",
             

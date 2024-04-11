@@ -31,8 +31,7 @@ function HomeLayout({children}){
     async function  handleLogout(e){
         e.preventDefault();
         const res=await dispatch(logout())
-        if(res?.payload?.success)
-        navigate('/')
+        if(res?.payload?.success)   navigate('/')
     }
     return(
         <div className="min-h-[90vh]">
@@ -102,10 +101,10 @@ function HomeLayout({children}){
                                <li className="absolute bottom-4 w-[90%]">
 
                                    <div className="w-full flex items-center justify-center">
-                                       <button className='btn-primary px-4 py-1 font-semibold rounded-md w-full bg-purple-600'>
+                                       <button className='btn-primary px-4 py-1 font-semibold rounded-md w-full bg-purple-700 hover:bg-purple-900'>
                                            <Link to='/user/profile'>Profile</Link>
                                        </button>
-                                       <button className='btn-secondary px-4 py-1 font-semibold rounded-md w-full bg-pink-700'>
+                                       <button className='btn-secondary px-4 py-1 font-semibold rounded-md w-full bg-pink-700 hover:bg-pink-800'>
                                            <Link onClick={handleLogout}>Logout</Link>
                                        </button>
                                    </div>
