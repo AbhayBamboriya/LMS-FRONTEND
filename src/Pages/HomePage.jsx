@@ -11,7 +11,7 @@ function HomePage(){
                     <h1 className="text-5xl font-semibold">
                         Find out Best 
                         <span className="text-yellow-500 font-bold">
-                             Online Courses
+                              Online Courses
                         </span>
                     </h1>
                     <p className="text-xl text-gray-200">

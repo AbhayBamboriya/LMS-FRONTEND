@@ -13,6 +13,7 @@ import CourserDescription from './Pages/Courses/CourseDescription'
 import RequireAuth from './Component/Auth/RequireAuth'
 import CreateCourse from './Pages/Courses/CreateCourse'
 import Profile from './Pages/User/Profile'
+import EditProfile from './Pages/User/EdiitProfile'
 // import morgan from 'morgan'
 
 function App() {
@@ -35,6 +36,7 @@ function App() {
           </Route>
           <Route element={<RequireAuth allowedRoles={["ADMIN","USER"]} />}>
                 <Route path='/user/profile' element={<Profile/>}/>
+                <Route path='/user/editprofile' element={<EditProfile/>}/>
           </Route>
           <Route path='*' element={<NotFound/>}></Route>
        </Routes>
