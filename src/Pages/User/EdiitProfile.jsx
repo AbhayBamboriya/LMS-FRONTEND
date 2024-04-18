@@ -63,7 +63,7 @@ function EditProfile(){
         navigate('/user/profile')
 
     }
-    console.log("ddd"+data.fullName);
+    // console.log("ddd"+data.fullName);
     return(
         <HomeLayout>
             <div className='flex items-center justify-center h-[100vh]'>
