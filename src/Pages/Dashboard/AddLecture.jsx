@@ -51,7 +51,7 @@ function Addlecture(){
             navigate(-1)
             setUserInput(
                 {
-                    id:courseDetails._id,
+                    id:courseDetails._id, 
                     lecture:undefined,
                     title:"",
                     description:"",
