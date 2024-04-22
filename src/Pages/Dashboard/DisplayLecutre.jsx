@@ -29,8 +29,8 @@ import { deleteCourseLecutre, getAllCoursesLectures } from "../../Redux/Slices/L
                     Course Name : {state?.title}
 
                 </div>
-                {/* {lectures && lectures.length>0 && */}
-                <div className="flex justify-center gap-10 w-full">
+                {(lectures && lectures.length>0 ) ?
+                (<div className="flex justify-center gap-10 w-full">
                     {/* left section for playing videos and display course deatils to admin */}
                     <div className="space-y-5 w-[29rem] p-2 rounded-lg shadow-[0_0_10px_black]">
                         <video 
@@ -90,8 +90,13 @@ import { deleteCourseLecutre, getAllCoursesLectures } from "../../Redux/Slices/L
                             })
                         }
                     </ul>
-                </div>
-                {/* } */}
+                </div>):(
+                    role==="ADMIN" && (
+                    <button onClick={()=>navigate("/course/addlecture",{state:{...state}})} className="btn-accent px-2 py-1 rounded-md font-semibold text-sm bg-purple-700">
+                        Add new Lecture
+                    </button>
+                    )
+                )}
             </div>
         </HomeLayout>
     )
