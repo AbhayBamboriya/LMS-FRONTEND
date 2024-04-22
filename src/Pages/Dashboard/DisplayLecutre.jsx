@@ -21,6 +21,7 @@ import { deleteCourseLecutre, getAllCoursesLectures } from "../../Redux/Slices/L
     async function onLectureDelete(courseId,lectureId){
         await dispatch(deleteCourseLecutre({courseId:courseId,lectureId:lectureId}))
         await dispatch(getAllCoursesLectures(courseId))
+        
     }
     return(
         <HomeLayout>
