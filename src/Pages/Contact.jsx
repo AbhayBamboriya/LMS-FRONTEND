@@ -33,7 +33,7 @@ function Contact(){
         }
 
         try{
-            const response=axiosInstance.post('/contact',{...userInput})
+            const response=axiosInstance.post('/contact',userInput)
             // toast promises is depending on response
             toast.promise(response,{
                 loading:"Submitting your message",
