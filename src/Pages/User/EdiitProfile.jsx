@@ -50,6 +50,7 @@ function EditProfile(){
         }
         if(data.fullName.length<5){
             toast.error('Name should be greater then 5 character')
+            return
         }
         const formData=new FormData()
         formData.append('fullName', data.fullName)

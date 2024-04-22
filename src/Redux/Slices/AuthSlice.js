@@ -110,13 +110,13 @@ export const updateProfile = createAsyncThunk("/user/update/profile",async (data
 
 export const getUserData = createAsyncThunk("/user/details",async ()=>{
     try{
-        const res=axiosInstance.get('/user/me')
+        const res=axiosInstance.get("/user/me")
         
         // console.log('check');
         return (await res).data
     }
     catch(e){
-        toast.error(e?.message)
+        toast.error(e.message)
     }
 })
 
