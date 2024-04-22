@@ -44,6 +44,7 @@ function EditProfile(){
 
     async function onFormsubmit(e){
         e.preventDefault()
+        console.log(data);
         if(!data.fullName){
             toast.error('All fields are mandatory')
             return
@@ -55,12 +56,13 @@ function EditProfile(){
         const formData=new FormData()
         formData.append('fullName', data.fullName)
         formData.append('avatar',data.avatar)
-
+        // console.log(formData.entries().next())
+        // console.log(formData.entries().next())
         // api request
         await dispatch(updateProfile([data.userId,formData]))
-
+        console.log("dispatch",data);
         await dispatch(getUserData())
-
+        console.log("user",data);
         navigate('/user/profile')
 
     }

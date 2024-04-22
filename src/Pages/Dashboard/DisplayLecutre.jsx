@@ -13,7 +13,7 @@ import { deleteCourseLecutre, getAllCoursesLectures } from "../../Redux/Slices/L
 
     const [currentVideo,setCurrentVideo]=useState()
     useEffect(()=>{
-        console.log(state);
+        console.log("state",state);
         if(!state) navigate('/courses')
         dispatch(getAllCoursesLectures(state._id))
     },[])
@@ -29,6 +29,7 @@ import { deleteCourseLecutre, getAllCoursesLectures } from "../../Redux/Slices/L
                     Course Name : {state?.title}
 
                 </div>
+                {console.log("lecture",lectures)}
                 {(lectures && lectures.length>0 ) ?
                 (<div className="flex justify-center gap-10 w-full">
                     {/* left section for playing videos and display course deatils to admin */}
