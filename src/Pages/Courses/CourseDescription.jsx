@@ -1,9 +1,9 @@
-import { useLocation } from 'react-router-dom'
+import { Navigate, useLocation, useNavigate } from 'react-router-dom'
 import {useSelector} from 'react-redux'
 import HomeLayout from '../../Layout/HomeLayout';
 function CourserDescription(){
     const {state} = useLocation()
-
+    const navigate=useNavigate()
     const {role , data} = useSelector((state) => state.auth)
     
     return(
@@ -31,8 +31,8 @@ function CourserDescription(){
                                 </p>
                             </div>
                             {
-                                role==='ADMIN' || data?.subscription?.status==='ACTIVE' || "sbf"? ( 
-                                    <button className='bg-yellow-600 text-xl rounded-md font-bold px-5 py-3 w-full hover:bg-yellow-500 transition-all ease-in-out duration-300'>
+                                role==='ADMIN' || data?.subscription?.status==='active'||'fd'? ( 
+                                    <button onClick={()=>navigate('/course/displaylecture',{state:{...state}})} className='bg-yellow-600 text-xl rounded-md font-bold px-5 py-3 w-full hover:bg-yellow-500 transition-all ease-in-out duration-300'>
                                         Watch Lectures
                                     </button>
                                 ) : (

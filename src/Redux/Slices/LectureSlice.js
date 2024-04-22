@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
-import toast from "react-hot-toast"
-import axiosInstance from "../../Helpers/axiosInstance"
-import { response } from "express"
+// import toast from "react-hot-toast"
+// import axiosInstance from "../../Helpers/axiosInstance"
+// import { response } from "express"
 
 const initialState = {
     lectures: []
@@ -72,5 +72,6 @@ const lectureSlice= createSlice({
     }
 
 })
+
 
 export default lectureSlice.reducer
