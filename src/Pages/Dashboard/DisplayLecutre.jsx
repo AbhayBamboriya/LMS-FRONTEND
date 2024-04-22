@@ -11,7 +11,7 @@ import { deleteCourseLecutre, getAllCoursesLectures } from "../../Redux/Slices/L
     const {lectures}=useSelector((state)=>state.lecture)
     const {role}=useSelector((state)=>state.auth)
 
-    const [currentVideo,setCurrentVideo]=useState()
+    const [currentVideo,setCurrentVideo]=useState(0)
     useEffect(()=>{
         console.log("state",state);
         if(!state) navigate('/courses')

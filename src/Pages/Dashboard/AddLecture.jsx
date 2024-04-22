@@ -46,7 +46,9 @@ function Addlecture(){
             toast.error('All fields are mandatory')
             return
         }
+        console.log("userinput",userInput);
         const response=await dispatch(addCourseLecture(userInput))
+        console.log("res",response);
         if(response?.payload?.success){
             navigate(-1)
             setUserInput(
@@ -114,10 +116,10 @@ function Addlecture(){
                                 </div>    
                             )}
 
-                        <button type="submit" className="btn btn-primary py-1 font-semibold text-lg" onClick={onFormsubmit}>
+                        <button type="submit" className="btn btn-primary py-1 font-semibold text-lg">
                             Add new Lecture
                         </button>
-                        </form>
+                    </form>
 
                 </div>
             </div>

@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
-// import toast from "react-hot-toast"
-// import axiosInstance from "../../Helpers/axiosInstance"
-// import { response } from "express"
+import toast from "react-hot-toast"
+import axiosInstance from "../../Helpers/axiosInstance"
+// // import { response } from "express"
 
 const initialState = {
     lectures: []
@@ -10,33 +10,37 @@ const initialState = {
 
 export const getAllCoursesLectures = createAsyncThunk("/courses/lecture/get", async (cid) => {
     try{
-        const res=axiosInstance.get(`/courses/${cid}`)
-        toast.promise(response,{
+        const res=axiosInstance.get(`/course/${cid}`)
+        toast.promise(res,{
             loading:'Fetching Course lectures',
             success:'Lecture Fetched Successfully',
             error:'Failed to load lectures'
         })
-        return (await response).data
+        return (await res).data
     }
     catch(e){
         toast.error(e?.response?.data?.message)
     }
 })
 
-export const addCourseLecture = createAsyncThunk("/courses/lecture/add", async (data) => {
+export const addCourseLecture = createAsyncThunk("/courses/lecture/added", async (data) => {
     try{
         const formData=new FormData()
+        // console.log("dataaaaaaaaaaaaaa",data.lecture);
+        // console.log("dataaaaaaaaaaaaaa",data.title);
+        // console.log("dataaaaaaaaaaaaaa",data.description);
         formData.append("lecture",data.lecture)
         formData.append("title",data.title)
         formData.append("description",data.description)
-
-        const res=axiosInstance.post(`/courses/${data.id}`,formData)
-        toast.promise(response,{
+        
+        const res=axiosInstance.post(`/course/${data.id}`,formData)
+        console.log('resssssssss',res);
+        toast.promise(res,{
             loading:'Adding Course lectures',
             success:'Lecture Added Successfully',
             error:'Failed to Add the lectures'
         })
-        return (await response).data
+        return (await res).data
     }
     catch(e){
         toast.error(e?.response?.data?.message)
@@ -45,7 +49,7 @@ export const addCourseLecture = createAsyncThunk("/courses/lecture/add", async (
 
 export const deleteCourseLecutre = createAsyncThunk("/courses/lecture/delete", async (data) => {
     try{
-        const res=axiosInstance.delete(`/courses?courseId=${data.courseId}&lectureId=${data.lectureId}`)
+        const res=axiosInstance.delete(`/course?courseId=${data.courseId}&lectureId=${data.lectureId}`)
         toast.promise(response,{
             loading:'Deleting Course lectures',
             success:'Lecture deleted Successfully',
@@ -65,10 +69,11 @@ const lectureSlice= createSlice({
     extraReducers:(builder)=>{
         builder.addCase(getAllCoursesLectures.fulfilled,(state,action)=>{
             console.log("fxfgg",action);
-            state.lectures=action?.payload?.lectures
+            state.lectures=action?.payload?.lectures    
+            console.log();
         })
         .addCase(addCourseLecture.fulfilled,(state,action)=>{
-            console.log(action);
+            console.log("sfjsdjf",action);
             state.lectures=action?.payload?.course?.lectures
         })
     }
