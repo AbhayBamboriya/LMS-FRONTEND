@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit"
 import toast from "react-hot-toast"
 import axiosInstance from "../../Helpers/axiosInstance"
+import { act } from "react-dom/test-utils";
 // // import { response } from "express"
 
 const initialState = {
@@ -75,6 +76,10 @@ const lectureSlice= createSlice({
         .addCase(addCourseLecture.fulfilled,(state,action)=>{
             console.log("sfjsdjf",action);
             state.lectures=action?.payload?.course?.lectures
+        })
+        .addCase(deleteCourseLecutre.fulfilled,(state,action)=>{
+            console.log("delete",action);
+            state.lectures=state.lectures-1;
         })
     }
 
