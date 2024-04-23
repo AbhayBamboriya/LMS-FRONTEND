@@ -26,6 +26,7 @@ export const deleteCourseById=createAsyncThunk('/course/delete',async(data)=>{
         const response=axiosInstance.delete(`/course/${data}`)
         console.log("vbfck"+response);
         toast.promise(response,{
+            // alert:'vddio',
             loading:"Deleting Course Data....",
             success:"Courses Deleted Successfully",
             error:"Failed to Delete the Courses"

@@ -2,6 +2,7 @@ import { Navigate, useLocation, useNavigate } from 'react-router-dom'
 import {useSelector , useDispatch } from 'react-redux'
 import HomeLayout from '../../Layout/HomeLayout';
 // import deleteCourseById from './Redux/Slices/CourseSlice.js'
+import { toast } from "react-hot-toast";
 import { deleteCourseById } from '../../Redux/Slices/CourseSlice';
 function CourserDescription(){
     const {state} = useLocation()
@@ -11,11 +12,15 @@ function CourserDescription(){
     const dispatch = useDispatch()
     async function deleteCourse(state){
         // console.log("s"+state?._id);
+        // alert.arguments
+        window.alert('Sure You want to delete the Course')
+       
         const res=await dispatch(deleteCourseById(state?._id))
         console.log("resss",res);
         if(res?.payload?.success)   navigate('/courses')
 
     }
+     
     return(
         <HomeLayout>
             <div className='min-h-[90vh] pt-12 px-20 flex flex-col items-center justify-center text-white'>
@@ -56,6 +61,7 @@ function CourserDescription(){
                                 role==='ADMIN' && 
                                 <button className='btn bg-red-600 text-xl rounded-md font-bold px-5 py-3 w-full hover:bg-red-800 transition-all ease-in-out duration-300 '
                                         onClick={()=>deleteCourse(state)}
+                                        // onClick={showToast}
                                 >
                                     
                                     Delete Course
