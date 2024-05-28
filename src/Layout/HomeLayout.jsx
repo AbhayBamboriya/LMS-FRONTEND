@@ -22,10 +22,6 @@ function HomeLayout({children}){
     function hideDrawer(){
         const element=document.getElementsByClassName('drawer-toggle')
         element[0].checked=false
-        // changeWidth()
-        // const drawerSide=document.getElementsByClassName("drawer-side")
-        
-        // drawerSide[0].style.width=0;
     }
 
     async function  handleLogout(e){
