@@ -10,7 +10,8 @@ const initialState={
     isLoggedIn:localStorage.getItem('isLoggedIn')   || false,
     role:localStorage.getItem('role') || "",
     // json .parse is used because when we do refresh then data will be in string format in redux dev tools
-    data:localStorage.getItem('data') !== undefined ? JSON.parse(localStorage.getItem('data')) :  {}
+    // data:localStorage.getItem('data') !== undefined ? JSON.parse(localStorage.getItem('data')) :  []
+    // data:JSON.parse(localStorage.getItem('data')) 
 }  
 // thunk is used to provide the delay
 // string is passed in createAsyncThunk to uniquely identify
