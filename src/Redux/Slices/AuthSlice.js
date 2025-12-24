@@ -175,15 +175,18 @@ export const getUserData = createAsyncThunk("/user/details",async ()=>{
 
 export const resetPassword=createAsyncThunk('/resetPassword',async(data)=>{
     try{
-        const res=await axiosInstance.post(`/user/password/${data.url}`,data)
+        const res= axiosInstance.post(`/user/password/${data.url}`,data)
         
         toast.promise(res,{
             loading:"Wait! Reset Password in Progress ",
             success:(data)=>{
+                console.log('data',data);
+                
                 return data?.data?.message
             },
             error:"Failed to Reset Password"
         });
+        // const data= await res
         return (await res).data
     }
     catch(e){

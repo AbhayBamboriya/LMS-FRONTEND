@@ -11,6 +11,7 @@ function ResetPassword(){
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
     const t=4
+      const [loading, setLoading] = useState(false);
     const state=useLocation()
     const { token } = useParams();
     // const url= useSelector((state)=>state?.auth?.resetPasswordUrl)
@@ -23,26 +24,11 @@ function ResetPassword(){
    
     const navigate=useNavigate()
     const dispatch=useDispatch()
-   
-    // useEffect(()=>{
-    //     (
-    //         async()=>{
-               
-    //         }
-    //     )()
-    // },[])
-    // console.log('urlx',url);
-    // if(url==undefined){
-    //    console.log('d');
-    //        navigate('/')
-    // }
     
 
     function handleUserInput(e){
         const {name,value}=e.target;
-        // console.log('value',...loginData);
-        // console.log(e.target.value);
-        // console.log('name',value);
+        
         setPassword({
             ...passwordw,
             [name]:value
@@ -56,6 +42,8 @@ function ResetPassword(){
     async function onReset(e){
         e.preventDefault()
         console.log('try');
+        //  const toastId = toast.loading("Resetting Password...");
+        
         // if(!resetPasswordUrl) navigate('/')
         if(!password || !confirmPassword){
             toast.error('All Fields are required');
@@ -75,13 +63,20 @@ function ResetPassword(){
         password: password,
         url: token,
     };
-
-        
+        setLoading(true);
+        try{
             const res=await dispatch(resetPassword(payloadData))
             console.log('response from resetppassword',res);
             if(res?.payload?.success){
+              //  setLoading(false);
                 navigate('/login')
             }
+          }
+          catch (error) {
+            console.error("Reset password failed", error);
+            } finally {
+            setLoading(false);
+          }
             
 
         
@@ -128,10 +123,19 @@ function ResetPassword(){
               {showPassword ? "🙈" : "👁️"}
             </span>
           </div>
+        <div className="relative">
+  <button
+    type="submit"
+    disabled={loading}
+    onClick={onReset}
+    className={`bg-cyan-400 hover:bg-cyan-300 text-black transition-all duration-300 w-full font-bold rounded-bl-lg rounded-br-lg py-2
+      ${loading && "opacity-50 cursor-not-allowed"}`}
+  >
+    {loading ? "Resetting Password..." : "Reset Password"}
+  </button>
+</div>
 
-          <button className="w-full bg-cyan-400 text-black font-semibold py-3 rounded-md hover:bg-cyan-300 transition" onClick={onReset}>
-            Reset password
-          </button>
+    
         </div>
 
         <p className="text-center mt-4 text-gray-400">
